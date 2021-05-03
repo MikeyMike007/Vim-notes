@@ -1,102 +1,117 @@
 # VIM notes
 
-## Commands relating to window navigations
-
-| Command               | Description                                          |
-|-----------------------|------------------------------------------------------|
-| hjkl                  | Move cursor left, down, up, right                    |
-| 2w (normal)           | Cursor two words forward                             |
-| 3e (normal)           | Cursor to the end of the third word forward          |
-| 0 (normal)            | Cursor to the beginning of line                      |
-| d2w (nornal)          | Delete 2 words                                       |
-| dd (n)                | Delete whole line                                    |
-| $ (n)                 | Move to end end of the line                          |
-| 2dd (n)               | Delete twp lines                                     |
-| u (n)                 | Undo                                                 |
-| U  (n)                | Undo all edits on a row                              |
-| p (n)                 | Put on line below                                    |
-| rx (n)                | Replace the character under the cursor with 'x'      |
-| ce (n)                | Delete rest of the word  under and right to cursor   |
-| :%s/png/jpg           | Search and replace word png to jpg                   |
-| u (normal)            | Undo change                                          |
-| x (normal)            | Delete character under cursor                        |
-| A (normal)            | Append text at the end of the line                   |
-| dw (normal)           | Delete a word                                        |
-| d$                    | Delete the rest of the line - right to the cursor    |
-| d                     | Delete operator                                      |
-| dw                    | Delete a word, excluding itd first character         |
-| de                    | Delete a word, including the last character          |
-| C-r                   | Redo                                                 |
-| c$                    | Delete the rest of the line right from cursor        |
-| C-g                   | Show status of file                                  |
-| :!ls                  | runs the ls command in the shell                     |
-| o (n)                 | Opens up a line below                                |
-| O (n)                 | Opens up a line abov                                 |
-| a (n)                 | Appends text after cursor                            |
-| A (n)                 | Appends text at the end of the current line          |
-| e (n)                 | Jump to the end of the word / next word              |
-| w (n)                 | Jump to the start of the word / next word            |
-| j$                    | Put the cursor at the end of next line               |
-| y (v)                 | Enter visual model and select text, copy text with y |
-| :somecommand C-d      | Pops up a completionwindow related to somecommand    |
-| C-w C-w               | Jump to other window                                 |
-| J                     | Joins the current line with the line below           |
-| 4x (n)                | Deletes 4 characters                                 |
-| d4w (n)               | Deletes 4 words                                      |
-| d4e (n)               | Deletes 4 words                                      |
-| d$                    | Deletes the rest of the line                         |
-| x = dl (n)            | Delete character under the cursor                    |
-| X = dh (n)            | Delete character left of the cursor                  |
-| D = d$ (n)            | Delete to end of the line                            |
-| C = c$ (n)            | Change to end of the line                            |
-| s = cl (n)            | Change one character                                 |
-| S = cc (n)            | Change the whole line                                |
-| . (n)                 | Repeating commands                                   |
-| jk (v)                | Select lines up or down in visual mode               |
-| cw                    | Change the underlying word                           |
-| dw then p             | When you delete, text is saved. Use p for put back   |
-| P                     | Put before cursor                                    |
-| p                     | Put after cursor                                     |
-| y                     | yank character                                       |
-| yw                    | yank word                                            |
-| y3w                   | Yank three words                                     |
-| yy                    | Yanks whole line                                     |
-| daw                   | Delete a word (irrespective where cursor is)         |
-| dG                    | Delete until the end of line                         |
-| dgg                   | Delete until the start of line                       |
-| :set backup           | Let vim create a backupfile                          |
-| :syntax enable        | Enbale syntax highlightning                          |
-| :set filetype         | if the filetype is '', type highlightning = unknown  |
-| :set filetype=fortran | Enable fortran highlighting                          |
-| :set background=dark  | Dark background - before enable syntax               |
-| :set nackground=light | Light background - set before enable syntax          |
-| C-w-w                 | Toggle Window                                        |
-| :colorscheme x        | Sets the colorscheme x                               |
-| :split                | Splits screen two windows. Leaves cursor top window  |
-| :close                | Closes a window                                      |
-| :only                 | Closes all window except the one you are in          |
-| z ENTER               | Move current line to top of screen and scroll        |
-| z.                    | Move current line t center of screen and scroll      |
-| z-                    | Move current line to bottom of screen and scroll     |
-| C-L                   | Redraw screen                                        |
-| ``                    | Return to previous mark or context                   |
-| ''                    | Return to beginning og line containing previous mark |
-| CTRL-v shift I        | Enter text in block mode                             |
-| CTRL-Z                | Suspend                                              |
-| fg                    | Resume                                               |
-| :!ls                  | Execute the shell command ls                         |
-| d (v)                 | Cut text                                             |
-| dd (v)                | Cut whole line                                       |
-| ciw                   | Delete a word and insert                             |
-| yaw                   | Yank a word                                          |
-| CTRL-V                | Paste from clipboard                                 |
+Following document illustrates my most used vim commands.
 
 ## Modes
 
-| Esc   | Normal mode                                     |
-| Esc-i | Insert mode (Text will be inserted after cursor |
-| C-v   | Start visual block modes                        |
-| Esc-R | Enters replace mode. Overwrites under cursor    |
+| Command    | Function                                      |
+|------------|-----------------------------------------------|
+| Esc        | Normal mode                                   |
+| Esc-i      | Insert mode                                   |
+| Esc-v      | Visual mode                                   |
+| Esc-V      | Visual row mode                               |
+| Esc-CTRL-v | Visual block mode                             |
+| Esc-R      | Enters replace mode (Overwrites under cursor) |
+
+## Cursor movements
+
+| Command | Function                                         |
+|---------|--------------------------------------------------|
+| hjkl    | Move cursor left, down, up, right                |
+| w       | Move forward to the beginning of a word          |
+| e       | Move to the end of a word                        |
+| b       | Move backward to the beginning of a word         |
+| 3w      | Move forwards three words (beginning of a word)  |
+| 3e      | Move forwards three workds (end of a word)       |
+| 3b      | Move backwards three words                       |
+| 0       | Cursor to the beginning of line                  |
+| $       | Move to end end of the line                      |
+| )       | Jump forward one sentence                        |
+| (       | Jump backward one sentence                       |
+| }       | Jump forward one paragraph                       |
+| {       | Jump backward a paragraph                        |
+| j       | Jump forward one line                            |
+| 10j     | Jump forward 10 lines                            |
+| k       | Jump backward one line                           |
+| 10k     | Jump backward 10 lines                           |
+| H       | Jump to the top of the screen                    |
+| M       | Jump to the middle of the screen                 |
+| L       | Jump to bottom of screen                         |
+| CTRL-f  | Scroll forward one screen                        |
+| CTRL-b  | Scroll backward one screen                       |
+| CTRL-d  | Scroll forward half screen                       |
+| CTRL-u  | Scroll backward half screen                      |
+| G (n)   | Move cursor to EOF                               |
+| gg (n)  | Move cursor to top of file                       |
+| nG      | Go to given line n                               |
+| z ENTER | Move current line to top of screen and scroll    |
+| z.      | Move current line t center of screen and scroll  |
+| z-      | Move current line to bottom of screen and scroll |
+| Enter   | Move to first character of next line             |
+| j$      | Put the cursor at the end of next line           |
+
+## Edit
+
+| Command        | Function                                                |
+|----------------|---------------------------------------------------------|
+| i              | Inserts text at the left to cursor                      |
+| a              | Inserts text at the right to cursor                     |
+| I              | Insert at the start of the current line                 |
+| A              | Insert at the end of the current line                   |
+| o              | Insert a line below current line                        |
+| O              | Insert a line above the current line                    |
+| s (cl)         | Delete character under cursor and start insert          |
+| S  (cc)        | Delete all text on line and start insert at beg of line |
+| C (c$)         | Delete everything right to the cursor and insert        |
+| cw             | Delete to the end of word and start inserting           |
+| ce             | Delete rest of the word under and right to cursor       |
+| ciw            | Delete a word and insert                                |
+| rx             | Replace the character under the cursor with 'x'         |
+| u              | Undo                                                    |
+| U              | Undo all edits on a row                                 |
+| CTRL-r         | Redo                                                    |
+| J              | Joins the current line with the line below              |
+| CTRL-v shift I | Enter text in block mode                                |
+
+## Cut, copy and paste
+
+| Command | Function                               |
+|---------|----------------------------------------|
+| y       | Yank character                         |
+| yaw     | Yank a word                            |
+| yw      | Yank word                              |
+| y3w     | Yank three words                       |
+| yy      | Yanks whole line                       |
+| 1,10y   | Yanks row 1 - 10                       |
+| d       | Cut text                               |
+| dd      | Cut whole line                         |
+| P       | Put before cursor                      |
+| p       | Put after cursor                       |
+| jk (v)  | Select lines up or down in visual mode |
+| CTRL-V  | Paste from clipboard                   |
+
+## Deletion
+
+| Command | Function                                          |
+|---------|---------------------------------------------------|
+| d       | Delete operator                                   |
+| dw      | Delete a word (cursor needs to be at beg of word) |
+| de      | Delete a word                                     |
+| daw     | Delete a word (irrespective where cursor is)      |
+| d2w     | Delete 2 words                                    |
+| d4w (n) | Deletes 4 words                                   |
+| d4e (n) | Deletes 4 words                                   |
+| dd (n)  | Delete whole line                                 |
+| 2dd (n) | Delete two lines                                  |
+| d$      | Delete the rest of the line - right of the cursor |
+| c$      | Delete the rest of the line right from cursor     |
+| D (d$)  | Delete to end of the line                         |
+| x (dl)  | Delete character under the cursor                 |
+| 4x      | Deletes 4 characters                              |
+| X (dh)  | Delete character left of the cursor               |
+| dG        | Delete until the end of line                       |
+| dgg       | Delete until the start of line                     |
+| dw then p | When you delete, text is saved. Use p for put back |
 
 ## Working with files
 
@@ -114,39 +129,36 @@
 
 ## Window navigation
 
-| Command       | Function                                        |
-|---------------|-------------------------------------------------|
-| CTRL-w h      | Move the window to  the left                    |
-| CTRL-w j      | Move the window to  the below                   |
-| CTRL-w k      | Move the window to  the above                   |
-| CTRL-w l      | Move the window to  the right                   |
-| CTRL-6        | Toggle between buffers                          |
-| CTRL-w H      | Move the window to  the left                    |
-| CTRL-w J      | Move the window to  the below                   |
-| CTRL-w K      | Move the window to  the above                   |
-| CTRL-w L      | Move the window to  the right                   |
-| CTRL-w <      | Decrease the verticalsize of the current window |
-| CTRL-w >      | Increase the verticalsize of the current window |
-| CTRL-w =      | Set sizes equally                               |
-| C-w +         | Inrease the size of a window (horizontal)       |
-| C-w -         | Decrease the size of a window                   |
-| :split file.c | Opens up file.c in a new window                 |
-| :split        | Horizontal split                                |
-| :vsplit       | Verical split                                   |
-| C-F           | Scroll forward one screen                       |
-| C-B           | Scroll backward one screen                      |
-| C-D           | Scroll forward half screen                      |
-| C-U           | Scroll backward half screen                     |
-| G (n)         | Move cursor to EOF                              |
-| gg (n)        | Move cursor to top of file                      |
-| H             | Move to home - the top line of screen           |
-| M             | Move to middle of screen                        |
-| L             | Move to bottom line of screen                   |
-| Enter         | Move to first character of next line            |
-| nG            | Go to given line n                              |
+| Command       | Function                                            |
+|---------------|-----------------------------------------------------|
+| CTRL-w h      | Move the window to  the left                        |
+| CTRL-w j      | Move the window to  the below                       |
+| CTRL-w k      | Move the window to  the above                       |
+| CTRL-w l      | Move the window to  the right                       |
+| CTRL-6        | Toggle between buffers                              |
+| CTRL-w H      | Move the window to  the left                        |
+| CTRL-w J      | Move the window to  the below                       |
+| CTRL-w K      | Move the window to  the above                       |
+| CTRL-w L      | Move the window to  the right                       |
+| CTRL-w <      | Decrease the verticalsize of the current window     |
+| CTRL-w >      | Increase the verticalsize of the current window     |
+| CTRL-w =      | Set sizes equally                                   |
+| C-w +         | Inrease the size of a window (horizontal)           |
+| C-w -         | Decrease the size of a window                       |
+| :split file.c | Opens up file.c in a new window                     |
+| :split        | Horizontal split                                    |
+| :vsplit       | Verical split                                       |
+| :split        | Splits screen two windows. Leaves cursor top window |
+| :close        | Closes a window                                     |
+| :only         | Closes all window except the one you are in         |
+| C-w-w         | Toggle Window                                       |
+| C-w C-w       | Jump to other window                                |
+| C-L           | Redraw screen                                       |
 
 ## Search functionality
 
+| Command         | Function                                              |
+|-----------------|-------------------------------------------------------|
 | /what           | Search for the word what in document                  |
 | n (search)      | Goes to the next search result                        |
 | N (search       | Goes to the previous search result                    |
@@ -159,6 +171,7 @@
 | :#,#s/old/new/g | To substitute phrases between two line #'s type       |
 | :%s/old/new/g   | To substitute all occurrences in the file typ         |
 | :%s/old/new/gc  | To ask for confirmation each time add 'c'             |
+| :%s/png/jpg     | Search and replace word png to jpg                    |
 
 ## Buffer navigation
 
@@ -172,69 +185,39 @@
 | :bfirst              | Go to first buffer                    |
 | :blast               | Go to last buffer                     |
 
-## Other useful stuff
+## Settings
 
-### FILE MARKS
+| Command               | Function                                            |
+|-----------------------|-----------------------------------------------------|
+| :set backup           | Let vim create a backupfile                         |
+| :syntax enable        | Enbale syntax highlightning                         |
+| :set filetype         | if the filetype is '', type highlightning = unknown |
+| :set filetype=fortran | Enable fortran highlighting                         |
+| :set background=dark  | Dark background - before enable syntax              |
+| :set nackground=light | Light background - set before enable syntax         |
 
-In chapter 4 was explained how you can place a mark in a file with "mx" and
-jump to that position with "`x".  That works within one file.  If you edit
-another file and place marks there, these are specific for that file.  Thus
-each file has its own set of marks, they are local to the file.
-So far we were using marks with a lowercase letter.  There are also marks
-with an uppercase letter.  These are global, they can be used from any file.
-For example suppose that we are editing the file "foo.txt".  Go to halfway
-down the file ("50%") and place the F mark there (F for foo): >
+## Working with marks
 
-   50%mF
+| Command | Function                                             |
+|---------|------------------------------------------------------|
+| ``      | Return to previous mark or context                   |
+| ''      | Return to beginning og line containing previous mark |
 
-Now edit the file "bar.txt" and place the B mark (B for bar) at its last line:
-  
-  GmB
+## Other
 
-Now you can use the "'F" command to jump back to halfway of foo.txt.  Or edit
-yet another file, type "'B" and you jump to the end of bar.txt.
+| Command          | Function                                          |
+|------------------|---------------------------------------------------|
+| C-g              | Show status of file                               |
+| :!ls             | runs the ls command in the shell                  |
+| :somecommand C-d | Pops up a completionwindow related to somecommand |
+| . (n)            | Repeating commands                                |
+| CTRL-Z           | Suspend                                           |
+| fg               | Resume                                            |
+| :!ls             | Execute the shell command ls                      |
 
-The file marks are remembered until they are placed somewhere else.  Thus you
-can place the mark, do hours of editing and still be able to jump back to that
-mark.
+## Other non-vim handy commands
 
-It's often useful to think of a simple connection between the mark letter
-and where it is placed.  For example, use the H mark in a header file, M in
-a Makefile and C in a C code file.
-
-To see where a specific mark is, give an argument to the ":marks" command: >
-
-:marks M
-
-You can also give several arguments: >
-
-:marks MCP
-
-Don't forget that you can use CTRL-O and CTRL-I to jump to older and newer
-positions without placing marks there.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Other handy commands
-
-| Command                   | Description                                  |
+| Command                   | Function
 |---------------------------|----------------------------------------------|
 | mogrify -format jpg *.png | Converts all png files to jpg in a directory |
-
-
 
