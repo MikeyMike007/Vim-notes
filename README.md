@@ -72,6 +72,7 @@ Following document illustrates my most used vim commands.
 | CTRL-r         | Redo                                                    |
 | J              | Joins the current line with the line below              |
 | CTRL-v shift I | Enter text in block mode                                |
+| ea             | Move cursor to end of word and edit                     |
 
 ## Cut, copy and paste
 
