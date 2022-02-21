@@ -2,10 +2,15 @@
 
 Following document illustrates my most used vim commands.
 
-## Modes
+`ysiw` - Put the cursor on a word and then type `ysiw` followed by a character
+that you want to surround your word with. Good for code blocks.
+
+## Vim / Neovim basic commands
+
+### Modes
 
 | Command    | Function                                      |
-|------------|-----------------------------------------------|
+| ---------- | --------------------------------------------- |
 | Esc        | Normal mode                                   |
 | Esc-i      | Insert mode                                   |
 | Esc-v      | Visual mode                                   |
@@ -13,10 +18,10 @@ Following document illustrates my most used vim commands.
 | Esc-CTRL-v | Visual block mode                             |
 | Esc-R      | Enters replace mode (Overwrites under cursor) |
 
-## Cursor movements
+### Cursor movements
 
 | Command | Function                                         |
-|---------|--------------------------------------------------|
+| ------- | ------------------------------------------------ |
 | hjkl    | Move cursor left, down, up, right                |
 | w       | Move forward to the beginning of a word          |
 | e       | Move to the end of a word                        |
@@ -50,34 +55,38 @@ Following document illustrates my most used vim commands.
 | Enter   | Move to first character of next line             |
 | j$      | Put the cursor at the end of next line           |
 
-## Edit
+### Edit
 
-| Command        | Function                                                |
-|----------------|---------------------------------------------------------|
-| i              | Inserts text at the left to cursor                      |
-| a              | Inserts text at the right to cursor                     |
-| I              | Insert at the start of the current line                 |
-| A              | Insert at the end of the current line                   |
-| o              | Insert a line below current line                        |
-| O              | Insert a line above the current line                    |
-| s (cl)         | Delete character under cursor and start insert          |
-| S  (cc)        | Delete all text on line and start insert at beg of line |
-| C (c$)         | Delete everything right to the cursor and insert        |
-| cw             | Delete to the end of word and start inserting           |
-| ce             | Delete rest of the word under and right to cursor       |
-| ciw            | Delete a word and insert                                |
-| rx             | Replace the character under the cursor with 'x'         |
-| u              | Undo                                                    |
-| U              | Undo all edits on a row                                 |
-| CTRL-r         | Redo                                                    |
-| J              | Joins the current line with the line below              |
-| CTRL-v shift I | Enter text in block mode                                |
-| ea             | Move cursor to end of word and edit                     |
+| Command        | Function                                             |
+| -------------- | ---------------------------------------------------- |
+| i              | Inserts text at the left to cursor                   |
+| a              | Inserts text at the right to cursor                  |
+| I              | Insert at the start of the current line              |
+| A              | Insert at the end of the current line                |
+| o              | Insert a line below current line                     |
+| O              | Insert a line above the current line                 |
+| s (cl)         | Delete character under cursor and start insert       |
+| S (cc)         | Delete all text line and start insert at beg of line |
+| C (c$)         | Delete everything right to the cursor and insert     |
+| cw             | Delete to the end of word and start inserting        |
+| ce             | Delete rest of the word under and right to cursor    |
+| ciw            | Delete a word and insert                             |
+| rx             | Replace the character under the cursor with 'x'      |
+| u              | Undo                                                 |
+| U              | Undo all edits on a row                              |
+| CTRL-r         | Redo                                                 |
+| J              | Joins the current line with the line below           |
+| CTRL-v shift I | Enter text in block mode                             |
+| ea             | Move cursor to end of word and edit                  |
+| `z=`           | Spell suggestions (in markdown)                      |
+| `<C-V><C-I>`   | Select block and insert into block                   |
+| `gq`           | Select with `<Shift-v>` and gq will wrap line        |
+| `viw`          | Select word under cursor                             |
 
-## Cut, copy and paste
+### Cut, copy and paste
 
 | Command | Function                               |
-|---------|----------------------------------------|
+| ------- | -------------------------------------- |
 | y       | Yank character                         |
 | yaw     | Yank a word                            |
 | yw      | Yank word                              |
@@ -90,34 +99,35 @@ Following document illustrates my most used vim commands.
 | p       | Put after cursor                       |
 | jk (v)  | Select lines up or down in visual mode |
 | CTRL-V  | Paste from clipboard                   |
+| `"*y`   | Copy to clipboard                      |
 
-## Deletion
+### Deletion
 
-| Command | Function                                          |
-|---------|---------------------------------------------------|
-| d       | Delete operator                                   |
-| dw      | Delete a word (cursor needs to be at beg of word) |
-| de      | Delete a word                                     |
-| daw     | Delete a word (irrespective where cursor is)      |
-| d2w     | Delete 2 words                                    |
-| d4w (n) | Deletes 4 words                                   |
-| d4e (n) | Deletes 4 words                                   |
-| dd (n)  | Delete whole line                                 |
-| 2dd (n) | Delete two lines                                  |
-| d$      | Delete the rest of the line - right of the cursor |
-| c$      | Delete the rest of the line right from cursor     |
-| D (d$)  | Delete to end of the line                         |
-| x (dl)  | Delete character under the cursor                 |
-| 4x      | Deletes 4 characters                              |
-| X (dh)  | Delete character left of the cursor               |
+| Command   | Function                                           |
+| --------- | -------------------------------------------------- |
+| d         | Delete operator                                    |
+| dw        | Delete a word (cursor needs to be at beg of word)  |
+| de        | Delete a word                                      |
+| daw       | Delete a word (irrespective where cursor is)       |
+| d2w       | Delete 2 words                                     |
+| d4w (n)   | Deletes 4 words                                    |
+| d4e (n)   | Deletes 4 words                                    |
+| dd (n)    | Delete whole line                                  |
+| 2dd (n)   | Delete two lines                                   |
+| d$        | Delete the rest of the line - right of the cursor  |
+| c$        | Delete the rest of the line right from cursor      |
+| D (d$)    | Delete to end of the line                          |
+| x (dl)    | Delete character under the cursor                  |
+| 4x        | Deletes 4 characters                               |
+| X (dh)    | Delete character left of the cursor                |
 | dG        | Delete until the end of line                       |
 | dgg       | Delete until the start of line                     |
 | dw then p | When you delete, text is saved. Use p for put back |
 
-## Working with files
+### Working with files
 
 | Command         | Function                                            |
-|-----------------|-----------------------------------------------------|
+| --------------- | --------------------------------------------------- |
 | :w FILENAME     | Writes the currrent vim file to disk with filename  |
 | :w FILENAME (v) | Saves the visually selected files in file FILENAME  |
 | :r FILENAME     | Retrieves disk file FILENAME - put below the cursor |
@@ -128,19 +138,19 @@ Following document illustrates my most used vim commands.
 | :wall           | Save changes among all windows                      |
 | :wqall          | Save and quit all windows                           |
 
-## Window navigation
+### Window navigation
 
 | Command       | Function                                            |
-|---------------|-----------------------------------------------------|
-| CTRL-w h      | Move the window to  the left                        |
-| CTRL-w j      | Move the window to  the below                       |
-| CTRL-w k      | Move the window to  the above                       |
-| CTRL-w l      | Move the window to  the right                       |
+| ------------- | --------------------------------------------------- |
+| CTRL-w h      | Move the window to the left                         |
+| CTRL-w j      | Move the window to the below                        |
+| CTRL-w k      | Move the window to the above                        |
+| CTRL-w l      | Move the window to the right                        |
 | CTRL-6        | Toggle between buffers                              |
-| CTRL-w H      | Move the window to  the left                        |
-| CTRL-w J      | Move the window to  the below                       |
-| CTRL-w K      | Move the window to  the above                       |
-| CTRL-w L      | Move the window to  the right                       |
+| CTRL-w H      | Move the window to the left                         |
+| CTRL-w J      | Move the window to the below                        |
+| CTRL-w K      | Move the window to the above                        |
+| CTRL-w L      | Move the window to the right                        |
 | CTRL-w <      | Decrease the verticalsize of the current window     |
 | CTRL-w >      | Increase the verticalsize of the current window     |
 | CTRL-w =      | Set sizes equally                                   |
@@ -156,15 +166,16 @@ Following document illustrates my most used vim commands.
 | C-w C-w       | Jump to other window                                |
 | C-L           | Redraw screen                                       |
 
-## Search functionality
+### Search functionality
 
 | Command         | Function                                              |
-|-----------------|-------------------------------------------------------|
+| --------------- | ----------------------------------------------------- |
 | /what           | Search for the word what in document                  |
-| n (search)      | Goes to the next search result                        |
-| N (search       | Goes to the previous search result                    |
+| n (search)      | Goes to the next search result (Enter first)          |
+| N (search       | Goes to the previous search result (Enter first)      |
 | ?what           | Search for the word 'what' in backward direction      |
 | C-o (search)    | Go back stepwise from where you searched              |
+| `<C-O>`         | Come back to where you came from                      |
 | C-L             | Redraws the screen and clears out the marked searches |
 | % (n)           | Matching parantheses search                           |
 | :s/old/new      | To substitute new for the first old in a line type    |
@@ -173,11 +184,13 @@ Following document illustrates my most used vim commands.
 | :%s/old/new/g   | To substitute all occurrences in the file typ         |
 | :%s/old/new/gc  | To ask for confirmation each time add 'c'             |
 | :%s/png/jpg     | Search and replace word png to jpg                    |
+| :noh            | Clear out search highlightning                        |
+| `''`            | Takes you back to beginning from where you searched   |
 
-## Buffer navigation
+### Buffer navigation
 
 | Command              | Function                              |
-|----------------------|---------------------------------------|
+| -------------------- | ------------------------------------- |
 | :buffers or :ls      | View buffer list                      |
 | :buffer 2 (or name)  | Edit buffer 2 (or name)               |
 | :sbuffer 3 (or name) | Open buffer 3 in new window (or name) |
@@ -186,10 +199,10 @@ Following document illustrates my most used vim commands.
 | :bfirst              | Go to first buffer                    |
 | :blast               | Go to last buffer                     |
 
-## Settings
+### Settings
 
 | Command               | Function                                            |
-|-----------------------|-----------------------------------------------------|
+| --------------------- | --------------------------------------------------- |
 | :set backup           | Let vim create a backupfile                         |
 | :syntax enable        | Enbale syntax highlightning                         |
 | :set filetype         | if the filetype is '', type highlightning = unknown |
@@ -197,17 +210,10 @@ Following document illustrates my most used vim commands.
 | :set background=dark  | Dark background - before enable syntax              |
 | :set nackground=light | Light background - set before enable syntax         |
 
-## Working with marks
-
-| Command | Function                                             |
-|---------|------------------------------------------------------|
-| ``      | Return to previous mark or context                   |
-| ''      | Return to beginning og line containing previous mark |
-
-## Other
+### Other
 
 | Command          | Function                                          |
-|------------------|---------------------------------------------------|
+| ---------------- | ------------------------------------------------- |
 | C-g              | Show status of file                               |
 | :!ls             | runs the ls command in the shell                  |
 | :somecommand C-d | Pops up a completionwindow related to somecommand |
@@ -216,9 +222,129 @@ Following document illustrates my most used vim commands.
 | fg               | Resume                                            |
 | :!ls             | Execute the shell command ls                      |
 
-## Other non-vim handy commands
+### Folding
 
-| Command                   | Function
-|---------------------------|----------------------------------------------|
-| mogrify -format jpg *.png | Converts all png files to jpg in a directory |
+| Command | Function             |
+| ------- | -------------------- |
+| zM      | Close all folds      |
+| zR      | Open all folds       |
+| zc      | Close a certain fold |
+| za      | Open a certain fold  |
 
+### Recording Macro
+
+Example of recording a macro
+
+1. `qc` - record macro `c`.
+2. Perform command that you want to put in macro
+3. `q` - End macro recording
+4. `@c` - perform macro
+
+## Plugins and LSP
+
+### LSP
+
+| Command | Function                            |
+| ------- | ----------------------------------- |
+| `gD`    | `:lua vim.lsp.buf.declaration()`    |
+| `gd`    | `:lua vim.lsp.buf.definition()`     |
+| `K`     | `:lua vim.lsp.buf.hover()`          |
+| `gi`    | `:lua vim.lsp.buf.implementation()` |
+| `<C-K>` | `:lua vim.lsp.buf.signature_help()` |
+| `N/A`   | `:lua vim.lsp.buf.rename()`         |
+| `gr`    | `:lua vim.lsp.buf.references()`     |
+| `N/A`   | `:lua vim.lsp.buf.code_action()`    |
+
+### Nvim-Tree
+
+| Command     | Function                 |
+| ----------- | ------------------------ |
+| `<Leader>e` | `:NvimTreeToggle`        |
+| `a`         | Add file / folder        |
+| `r`         | Rename file              |
+| `d`         | Delete file              |
+| `R`         | Refresh tree             |
+| `<C-v>`     | Open in vertical split   |
+| `<C-x>`     | Open in horizontal split |
+| `<C-t>`     | Open file in new tab     |
+| `<TAB>`     | Open file in preview     |
+
+### Null-ls
+
+| Command       | Function                                            |
+| ------------- | --------------------------------------------------- |
+| `:Format`     | `:lua vim.lsp.buf.formatting_sync()` (Formats file) |
+| `NullLspInfo` | See which formatters and linters are attched        |
+
+The formatters are set in the file null-ls.lua in the `lsp` folder.
+You might need to adjust `M.on_attach = function(client, bufnr)` function in
+the file `handlers.lua` in the `lsp` folder.
+
+### Toggleterm
+
+You can toggle the terminal with the shortcut `<C-\>`. You can also change the
+mapping in keymaps.lua In `toggleterm.lua`, you can also specify whether the
+window should float, be horizontal or vertical. In this file, you can also
+configure functions that define whether `toggleterm` should open a program such
+as `python`, `htop`, etc.
+
+You can also specify or map commands such as `:Toggleterm direction=horizontal size=10`.
+
+### Projects
+
+The command `:Telescope projects` lets you search for projects or within
+projects. Please note that for javascript projects you should first initiate a
+project with `eslint --init` in order for it to work.
+
+### Gitsigns
+
+Adds a color to the left based on whether a part is not committed, deleted etc.
+
+Example of commands:
+
+| Command                  | Function |
+| ------------------------ | -------- |
+| `:Gitsigns preview_hunk` |          |
+| `:Gitsigns next_hunk`    |          |
+| `:Gitsigns blame_line`   |          |
+
+### Telescope
+
+Example of commands:
+
+| Command                       | Function                                  |
+| ----------------------------- | ----------------------------------------- |
+| `Telescope find_files`        | Fuzzy finder                              |
+| `Telescope lsp_definitions`   | Same as `gd` i.e. go to definition        |
+| `Telescope live_grep`         | Search for text in projects               |
+| `Telescope lsp_references`    | As `gr` i.e. shows references to variable |
+| `Telescope [] theme=ivy`      | Changes the theme of the window           |
+| `Telescope [] theme=dropdown` | Another theme                             |
+| `Telescope media_files`       | Shows mediafiles in your project          |
+
+Please note that there are a lot of keybindings to `Telescope`. Please see
+`telescope.lua` for more. Please also note that there is different modes for
+`Telescope` such as `Normal`, `Insert`, etc.
+
+I think `<Leader>f` is mapped to `:Telescope find_files` and `<Leader>F` to
+`:Telescope live_grep`
+
+### Autopairs
+
+| Command   | Function                                  |
+| --------- | ----------------------------------------- |
+| `<ALT-e>` | Insert `(` or `{` and then push `<ALT-e>` |
+
+### Comment
+
+| Command | Function                  |
+| ------- | ------------------------- |
+| `gcc`   | Comments marked codeblock |
+
+### Compe
+
+The plugin compe has a really useful feature called `Super Tab`. If you for
+example enter a code snippet into your code. Cmp will take you to the first
+item, for example the function name. After you enter the function name you can
+press `<C-e>` and then `<TAB>` and it will take you to the next entry, for
+example the first argument in the function.
