@@ -2,9 +2,6 @@
 
 Following document illustrates my most used vim commands.
 
-`ysiw` - Put the cursor on a word and then type `ysiw` followed by a character
-that you want to surround your word with. Good for code blocks.
-
 ## Vim / Neovim basic commands
 
 ### Modes
@@ -242,6 +239,103 @@ Example of recording a macro
 
 ## Plugins and LSP
 
+### Packer
+
+Please note that there is a lot of options you can pass to packer when you add
+a plugin. Please see packers GitHub site for specific options.
+
+### nvim-lua/popup.nvim
+
+An implementation of the Popup API from vim in Neovim.
+
+### Autopairs
+
+An plugin to autopair `(`, `{`, etc.
+
+| Command   | Function                                  |
+| --------- | ----------------------------------------- |
+| `<ALT-e>` | Insert `(` or `{` and then push `<ALT-e>` |
+
+### Bufferline
+
+Arranges buffers nicely in windows. Please note that there are lot of commands that
+you could add to your keymap here.
+
+### vim-bbye - Bbye (Buffer Bye) for Vim
+
+| Command     | Function                                                      |
+| ----------- | ------------------------------------------------------------- |
+| `:Bdelete`  | Removes file from buffer list, clears options, vars, mappings |
+| `:Bwipeout` | Same as above but it also removes file from jumplist `<C-o>`  |
+
+Could be nice to add keymaps for these.
+
+### Lualine
+
+Status line written in lua. Please configure in `lualine.lua` if you deem it necessary.
+
+### Indent-blankline
+
+Lots of configurations that could be done. Please see Github page or `:help indent_blankline.txt`
+
+### hop.nvim
+
+| Command | Function   |
+| ------- | ---------- |
+| `s`     | `:HopWord` |
+| `S`     | `:HopLine` |
+
+### numb.nvim
+
+Peeks lines of the buffer. Just write `:300` to peek line 300
+
+### Zen-mode
+
+Toggle zen-mode with `:ZenMode`
+
+### Neoscroll
+
+Smooth scroll functionality. Works with following commands:
+
+| Command | Function                              |
+| ------- | ------------------------------------- |
+| `<C-u>` | Moves cursor + screen up half page    |
+| `<C-d>` | Moves cursor + screen down half page  |
+| `<C-b>` | Moves cursor + screen up 1 page       |
+| `<C-f>` | Moves cursor + screen down 1 page     |
+| `<C-y>` | Moves screen up 1 line                |
+| `<C-e>` | Moves screen down 1 line              |
+| `zz`    | Move current line to middle of screen |
+| `zt`    | Move current line to top of screen    |
+| `zb`    | Move current line to bottom of screen |
+
+### TODO comments
+
+Color highlighting for comments containing: `PERF`, `HACK`, `TODO`, `NOTE`,
+`FIX`, `WARNING`
+
+| Command          | Function                                      |
+| ---------------- | --------------------------------------------- |
+| `:TodoQuickFix`  | Uses the quickfix list to show all todos      |
+| `:TodoLocList`   | Uses the locationlist to show all todos       |
+| `:TodoTrouble`   | Lists all to do's in `trouble`                |
+| `:TodoTelescope` | Search trough all the projects with Telescope |
+
+### Markdown preview
+
+| Command                  | Function                 |
+| ------------------------ | ------------------------ |
+| `:MarkdownPreviewToggle` | Toggles markdown preview |
+
+### Vim Table Mode
+
+Enter table mode by pressing `<Leader>T` and then use `|` to separate cells.
+
+### nvim/cmp - The completion plugin
+
+A completion engine plugin for neovim written in Lua. Completion sources are
+installed from external repositories and "sourced".
+
 ### LSP
 
 | Command | Function                            |
@@ -329,12 +423,6 @@ Please note that there are a lot of keybindings to `Telescope`. Please see
 I think `<Leader>f` is mapped to `:Telescope find_files` and `<Leader>F` to
 `:Telescope live_grep`
 
-### Autopairs
-
-| Command   | Function                                  |
-| --------- | ----------------------------------------- |
-| `<ALT-e>` | Insert `(` or `{` and then push `<ALT-e>` |
-
 ### Comment
 
 | Command | Function                  |
@@ -348,3 +436,55 @@ example enter a code snippet into your code. Cmp will take you to the first
 item, for example the function name. After you enter the function name you can
 press `<C-e>` and then `<TAB>` and it will take you to the next entry, for
 example the first argument in the function.
+
+### Renamer
+
+| Command    | Function                 |
+| ---------- | ------------------------ |
+| `<F2>` (n) | Rename                   |
+| `<F2>` (i) | Rename                   |
+| `<c-i>`    | Cursor to start          |
+| `<c-a>`    | Set cursor to end        |
+| `<c-e>`    | Set cursor to word end   |
+| `<c-b>`    | Set cursor to word start |
+| `<c-c>`    | Clear line               |
+| `<c-u>`    | Undo                     |
+| `<c-r>`    | Redo                     |
+
+### Symbols-outline
+
+A tree like view for symbols in Neovim using the Language Server Protocol.
+
+| Command           | Function                                           |
+| ----------------- | -------------------------------------------------- |
+| `:SymbolsOutline` | Toggles symbols outline                            |
+| `<ESC>`           | Close outline                                      |
+| `<Enter>`         | Go to symbol location in code                      |
+| `<o>`             | Go to symbol location in code without losing focus |
+| `<C-SPACE>`       | Hoover current symbol                              |
+| `<K>`             | Toggles the current symbol preview                 |
+| `<r>`             | Rename symbol                                      |
+| `<a>`             | Code actions                                       |
+| `<?>`             | Show help message                                  |
+
+### Trouble
+
+| Command              | Function                                              |
+| -------------------- | ----------------------------------------------------- |
+| `<ESC>`              | Cancel the preview and get back to your last ...      |
+| `<q>`                | Close the list                                        |
+| `<r>`                | Refresh                                               |
+| `<Enter>` or `<TAB>` | Jump to diagnostic or open / close fold               |
+| `<C-x>`              | Open buffer in new split                              |
+| `<C-v>`              | Open buffer in new vertical split                     |
+| `<C-t>`              | Open buffer in new tab                                |
+| `<o>`                | Jump to diagnostic and close the list                 |
+| `<m>`                | Toggle between workspace and document diagnostic mode |
+| `<P>`                | Toggle auto preview                                   |
+| `<K>`                | Hoover - Opens a popup with a multiline message       |
+| `<p>`                | Preview the diagnostic location                       |
+| `<zM>`, `<zm>`       | Close all folds                                       |
+| `<zR>`, `<zr>`       | Open all folds                                        |
+| `<zA>`, `<za>`       | Toggle fold of current line                           |
+| `<k>`                | Previous item                                         |
+| `<j>`                | Next item                                             |
